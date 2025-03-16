@@ -50,3 +50,24 @@ if analysis_option == "Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan 
     plt.xticks([0, 1], ['Bukan Libur', 'Libur'])
     plt.grid(True)
     st.pyplot(fig)
+
+if analysis_option == "pola penggunaan sepeda pada musim panas dan musim dingin":
+    st.header("pola penggunaan sepeda pada musim panas dan musim dingin")
+
+    fig = plt.figure(figsize=(10, 6))
+    
+    filtered_hour = hour[hour['season'].isin(['Summer', 'Winter'])]
+    
+    sns.scatterplot(
+        x='atemp',
+        y='count',
+        data=filtered_hour,
+        hue='season',
+        alpha=0.5
+    )
+    
+    plt.title('Distribusi Penjualan Berdasarkan Musim (Summer & Winter)')
+    plt.xlabel('Suhu yang dirasakan')
+    plt.ylabel('Jumlah Penjualan')
+    
+    st.pyplot(fig)
