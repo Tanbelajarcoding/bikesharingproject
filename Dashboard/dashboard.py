@@ -84,21 +84,60 @@ if analysis_option == "Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan 
 
 if analysis_option == "pola penggunaan sepeda pada musim panas dan musim dingin":
     st.header("pola penggunaan sepeda pada musim panas dan musim dingin")
-
-    fig = plt.figure(figsize=(10, 6))
-    
-    filtered_hour = hour[hour['season'].isin(['Summer', 'Winter'])]
-    
-    sns.scatterplot(
-        x='atemp',
-        y='count',
-        data=filtered_hour,
-        hue='season',
-        alpha=0.5
-    )
-    
-    plt.title('Distribusi Penjualan Berdasarkan Musim (Summer & Winter)')
-    plt.xlabel('Suhu yang dirasakan')
-    plt.ylabel('Jumlah Penjualan')
-    
-    st.pyplot(fig)
+    tab1, tab2, tab3 = st.tabs(["Summer & Winter", "Summer", "Winter"])
+    with tab1:
+        fig = plt.figure(figsize=(10, 6))
+        
+        filtered_hour = hour[hour['season'].isin(['Summer', 'Winter'])]
+        
+        sns.scatterplot(
+            x='atemp',
+            y='count',
+            data=filtered_hour,
+            hue='season',
+            alpha=0.5
+        )
+        
+        plt.title('Distribusi Penjualan Berdasarkan Musim Panas & Dingin')
+        plt.xlabel('Suhu yang dirasakan')
+        plt.ylabel('Jumlah Penjualan')
+        
+        st.pyplot(fig)
+        
+    with tab2:
+        fig = plt.figure(figsize=(10, 6))
+        
+        filtered_hour = hour[hour['season'].isin(['Summer'])]
+        
+        sns.scatterplot(
+            x='atemp',
+            y='count',
+            data=filtered_hour,
+            hue='season',
+            alpha=0.5
+        )
+        
+        plt.title('Distribusi Penjualan Berdasarkan Musim Panas')
+        plt.xlabel('Suhu yang dirasakan')
+        plt.ylabel('Jumlah Penjualan')
+        
+        st.pyplot(fig)
+           
+        with tab3:
+        fig = plt.figure(figsize=(10, 6))
+        
+        filtered_hour = hour[hour['season'].isin(['Winter'])]
+        
+        sns.scatterplot(
+            x='atemp',
+            y='count',
+            data=filtered_hour,
+            hue='season',
+            alpha=0.5
+        )
+        
+        plt.title('Distribusi Penjualan Berdasarkan Musim Dingin')
+        plt.xlabel('Suhu yang dirasakan')
+        plt.ylabel('Jumlah Penjualan')
+        
+        st.pyplot(fig)
