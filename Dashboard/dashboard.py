@@ -26,16 +26,47 @@ st.caption("Last updated: 1 January 2013")
 # -------------------------------
 if analysis_option == "Hubungan Humidity dan Jumlah Penyewaan Sepeda pada Musim Panas":
     st.header("Hubungan Humidity dan Jumlah Penyewaan Sepeda pada Musim Panas")
+     tab1, tab2, tab3, tab4 = st.tabs(["Spring", "Summer", "Autumn", "Winter"])
+    with tab1:
+        filtered_hour = hour[hour['season'].isin(['Spring'])]
     
-    filtered_hour = hour[hour['season'].isin(['Summer'])]
-
-    fig = plt.figure(figsize=(10, 6))
-    sns.scatterplot(data=filtered_hour, x='humidity', y='count', alpha=0.6, color='blue')
-    plt.title('Hubungan antara Kelembapan (Humidity) dan Jumlah Penyewaan Sepeda pada Musim Panas', fontsize=14)
-    plt.xlabel('Kelembapan (Humidity)', fontsize=12)
-    plt.ylabel('Jumlah Penyewaan Sepeda (cnt)', fontsize=12)
-    plt.grid(True)
-    st.pyplot(fig)    
+        fig = plt.figure(figsize=(10, 6))
+        sns.scatterplot(data=filtered_hour, x='humidity', y='count', alpha=0.6, color='blue')
+        plt.title('Hubungan antara Kelembapan (Humidity) dan Jumlah Penyewaan Sepeda pada Musim Semi', fontsize=14)
+        plt.xlabel('Kelembapan (Humidity)', fontsize=12)
+        plt.ylabel('Jumlah Penyewaan Sepeda (cnt)', fontsize=12)
+        plt.grid(True)
+        st.pyplot(fig)    
+    with tab2:
+        filtered_hour = hour[hour['season'].isin(['Summer'])]
+    
+        fig = plt.figure(figsize=(10, 6))
+        sns.scatterplot(data=filtered_hour, x='humidity', y='count', alpha=0.6, color='blue')
+        plt.title('Hubungan antara Kelembapan (Humidity) dan Jumlah Penyewaan Sepeda pada Musim Panas', fontsize=14)
+        plt.xlabel('Kelembapan (Humidity)', fontsize=12)
+        plt.ylabel('Jumlah Penyewaan Sepeda (cnt)', fontsize=12)
+        plt.grid(True)
+        st.pyplot(fig) 
+    with tab3:
+        filtered_hour = hour[hour['season'].isin(['Autumn'])]
+    
+        fig = plt.figure(figsize=(10, 6))
+        sns.scatterplot(data=filtered_hour, x='humidity', y='count', alpha=0.6, color='blue')
+        plt.title('Hubungan antara Kelembapan (Humidity) dan Jumlah Penyewaan Sepeda pada Musim Gugur', fontsize=14)
+        plt.xlabel('Kelembapan (Humidity)', fontsize=12)
+        plt.ylabel('Jumlah Penyewaan Sepeda (cnt)', fontsize=12)
+        plt.grid(True)
+        st.pyplot(fig) 
+    with tab4:
+        filtered_hour = hour[hour['season'].isin(['Winter'])]
+    
+        fig = plt.figure(figsize=(10, 6))
+        sns.scatterplot(data=filtered_hour, x='humidity', y='count', alpha=0.6, color='blue')
+        plt.title('Hubungan antara Kelembapan (Humidity) dan Jumlah Penyewaan Sepeda pada Musim Dingin', fontsize=14)
+        plt.xlabel('Kelembapan (Humidity)', fontsize=12)
+        plt.ylabel('Jumlah Penyewaan Sepeda (cnt)', fontsize=12)
+        plt.grid(True)
+        st.pyplot(fig) 
 
 if analysis_option == "Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan Hari Kerja":
     st.header("Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan Hari Kerja")
