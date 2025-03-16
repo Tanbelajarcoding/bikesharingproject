@@ -123,7 +123,7 @@ if analysis_option == "pola penggunaan sepeda pada musim panas dan musim dingin"
         
         st.pyplot(fig)
            
-        with tab3:
+    with tab3:
         fig = plt.figure(figsize=(10, 6))
         
         filtered_hour = hour[hour['season'].isin(['Winter'])]
