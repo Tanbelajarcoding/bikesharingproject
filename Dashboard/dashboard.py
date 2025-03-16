@@ -37,3 +37,16 @@ if analysis_option == "Hubungan Humidity dan Jumlah Penyewaan Sepeda pada Musim 
     plt.grid(True)
     st.pyplot(fig)    
 
+if analysis_option == "Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan Hari Kerja":
+    st.header("Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan Hari Kerja")
+   
+    holiday_data = hour.groupby('holiday')['count'].mean()
+    
+    fig = plt.figure(figsize=(8, 6))
+    sns.barplot(x=holiday_data.index, y=holiday_data.values, palette="Blues_d")
+    plt.title('Perbandingan Jumlah Penyewaan Sepeda pada Hari Libur dan Hari Kerja', fontsize=14)
+    plt.xlabel('Hari Libur (0: Bukan Libur, 1: Libur)', fontsize=12)
+    plt.ylabel('Rata-rata Jumlah Penyewaan Sepeda (cnt)', fontsize=12)
+    plt.xticks([0, 1], ['Bukan Libur', 'Libur'])
+    plt.grid(True)
+    st.pyplot(fig)
