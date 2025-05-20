@@ -1,1 +1,1 @@
-https://bikesharingdashboarddd.streamlit.app/
+https://bikesharingprojectdashboard.streamlit.app/
